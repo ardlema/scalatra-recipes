@@ -9,7 +9,14 @@
     That class should should implement org.scalatra.LifeCycle.  Your app
     can be configured in Scala code there.
   -->
-  <listener>
-    <listener-class>org.scalatra.servlet.ScalatraListener</listener-class>
-  </listener>
+
+    <servlet>
+        <servlet-name>scalatra</servlet-name>
+        <servlet-class>recipes.RecipeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>scalatra</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
 </web-app>
