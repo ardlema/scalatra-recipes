@@ -3,7 +3,7 @@ package recipes
 import org.scalatra._
 import scalate.ScalateSupport
 
-class RecipeFilter extends ScalatraFilter with ScalateSupport {
+class RecipeController extends ScalatraFilter with ScalateSupport {
 
   get("/") {
     <html>
