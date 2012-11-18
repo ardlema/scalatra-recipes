@@ -40,7 +40,7 @@ class RecipeController extends ScalatraFilter with ScalateSupport {
 
   notFound {
     contentType = "text/html"
-    templateEngine.layout("/WEB-INF/views/hello-scalate.scaml")
+    templateEngine.layout("/WEB-INF/views/hello-scalate.jade")
   }
 
 }
