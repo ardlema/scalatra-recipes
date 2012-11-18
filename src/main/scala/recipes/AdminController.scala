@@ -19,12 +19,8 @@ class AdminController extends ScalatraFilter with ScalateSupport {
 
 
   get("/admin") {
-    <html>
-      <body>
-        <h1>Hello, world!</h1>
-        Say <a href="hello-scalate">hello to Scalate from admin</a>.
-      </body>
-    </html>
+    contentType = "text/html"
+    templateEngine.layout("/WEB-INF/views/login.jade")
   }
 
 
