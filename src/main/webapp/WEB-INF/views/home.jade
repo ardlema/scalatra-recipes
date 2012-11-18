@@ -1,10 +1,8 @@
 - attributes("title") = "Recipes: Your online cookbook"
 - attributes("headline") = "Welcome to Recipes 2.0"
--@ val userId: String = ""
+-@ val userId: String
 
 form.login-form(action="/admin/checkUser" method="get" id="login-form")
   .form-submit
-    input(type="text" name="userId" maxlength="10")
-    input(type="text" name="password" maxlength="10")
-    button(type="submit") = "Login"
+    = "Hola" + " " + userId + " !!!!!!!"
 

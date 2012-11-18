@@ -23,6 +23,12 @@ class AdminController extends ScalatraFilter with ScalateSupport {
     templateEngine.layout("/WEB-INF/views/login.jade")
   }
 
+  get("/admin/checkUser") {
+    contentType = "text/html"
+    val userId = params.get("userId")
+    templateEngine.layout("/WEB-INF/views/home.jade",Map("userId" -> userId.get))
+  }
+
 
   notFound {
     contentType = "text/html"

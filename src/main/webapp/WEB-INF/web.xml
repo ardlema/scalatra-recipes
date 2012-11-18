@@ -12,8 +12,10 @@
 
     <filter-mapping>
         <filter-name>adminController</filter-name>
-        <url-pattern>/admin</url-pattern>
+        <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
+
+
 
     <filter>
         <filter-name>recipeController</filter-name>
