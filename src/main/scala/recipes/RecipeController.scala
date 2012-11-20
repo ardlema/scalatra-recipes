@@ -24,7 +24,7 @@ class RecipeController extends ScalatraFilter with ScalateSupport {
     // convert response to json and return as OK
     recipesRepository.get(params("id").toInt) match {
       case Some(x) => Ok(write(x));
-      case None => NotFound("Item with id " + params("id") + " not found");
+      case None => NotFound("Item with id " + params("id") + " not found...");
     }
   }
 
