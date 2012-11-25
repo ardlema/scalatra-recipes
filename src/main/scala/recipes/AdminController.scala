@@ -7,19 +7,23 @@ import net.liftweb.json.Serialization._
 import org.ardlema.repository.{UserRepository, RecipeRepository}
 import net.liftweb.json.{NoTypeHints, Serialization}
 import com.escalatesoft.subcut.inject.{Injectable, BindingModule}
+import org.ardlema.services.IdentityService
 
 class AdminController(implicit val bindingModule: BindingModule) extends ScalatraFilter
       with ScalateSupport
       with Injectable {
 
   // very simple logger
-  val logger = Logger(classOf[AdminController]);
+  val logger = Logger(classOf[AdminController])
 
 
-  val userRepository = inject[UserRepository];
+  val identityService = inject[IdentityService]
+
+  val userRepository = inject[UserRepository]
+
 
   // implicit value for json serialization format
-  implicit val formats = Serialization.formats(NoTypeHints);
+  implicit val formats = Serialization.formats(NoTypeHints)
 
 
   get("/admin") {
@@ -30,7 +34,7 @@ class AdminController(implicit val bindingModule: BindingModule) extends Scalatr
   get("/admin/checkUser") {
     contentType = "text/html"
     val userId = params.get("userId")
-    val theUser = userRepository.get("","")
+    val theUser = identityService.get(userRepository, userId.get,"")
     templateEngine.layout("/WEB-INF/views/home.jade",Map("userId" -> theUser.get.name))
   }
 

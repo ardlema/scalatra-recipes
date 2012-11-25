@@ -6,7 +6,7 @@ class UserRepositoryCassandra extends AnyRef with UserRepository {
 
   def get(userName: String, password: String) : Option[User] = {
      val usuario = new User()
-     usuario.name = "usuario"
+     usuario.name = "amparo!!!"
      usuario.age = 20
      Some(usuario)
   }
