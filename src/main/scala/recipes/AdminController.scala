@@ -4,15 +4,19 @@ import org.scalatra._
 import scalate.ScalateSupport
 import grizzled.slf4j.Logger
 import net.liftweb.json.Serialization._
-import org.ardlema.repository.RecipeRepository
+import org.ardlema.repository.{UserRepository, RecipeRepository}
 import net.liftweb.json.{NoTypeHints, Serialization}
+import com.escalatesoft.subcut.inject.{Injectable, BindingModule}
 
-class AdminController extends ScalatraFilter with ScalateSupport {
+class AdminController(implicit val bindingModule: BindingModule) extends ScalatraFilter
+      with ScalateSupport
+      with Injectable {
 
   // very simple logger
   val logger = Logger(classOf[AdminController]);
 
-  val recipesRepository = new RecipeRepository;
+
+  val userRepository = inject[UserRepository];
 
   // implicit value for json serialization format
   implicit val formats = Serialization.formats(NoTypeHints);
@@ -26,13 +30,14 @@ class AdminController extends ScalatraFilter with ScalateSupport {
   get("/admin/checkUser") {
     contentType = "text/html"
     val userId = params.get("userId")
-    templateEngine.layout("/WEB-INF/views/home.jade",Map("userId" -> userId.get))
+    val theUser = userRepository.get("","")
+    templateEngine.layout("/WEB-INF/views/home.jade",Map("userId" -> theUser.get.name))
   }
 
 
   notFound {
     contentType = "text/html"
-    templateEngine.layout("/WEB-INF/views/hello-scalate.jade")
+    templateEngine.layout("/views/home.jade")
   }
 
 }

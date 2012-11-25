@@ -32,7 +32,7 @@ class RecipeController extends ScalatraFilter with ScalateSupport {
     <html>
       <body>
         <h1>Hello, world!</h1>
-        Say <a href="hello-scalate">hello to Scalate</a>.
+        Say <a href="login">hello to Scalate</a>.
       </body>
     </html>
   }
@@ -40,7 +40,7 @@ class RecipeController extends ScalatraFilter with ScalateSupport {
 
   notFound {
     contentType = "text/html"
-    templateEngine.layout("/WEB-INF/views/hello-scalate.jade")
+    templateEngine.layout("/WEB-INF/views/login.jade")
   }
 
 }
