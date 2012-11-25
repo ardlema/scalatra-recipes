@@ -3,8 +3,7 @@ package recipes
 import org.scalatra._
 import scalate.ScalateSupport
 import grizzled.slf4j.Logger
-import net.liftweb.json.Serialization._
-import org.ardlema.repository.{UserRepository, RecipeRepository}
+import org.ardlema.repository.UserRepository
 import net.liftweb.json.{NoTypeHints, Serialization}
 import com.escalatesoft.subcut.inject.{Injectable, BindingModule}
 import org.ardlema.services.IdentityService
@@ -34,8 +33,12 @@ class AdminController(implicit val bindingModule: BindingModule) extends Scalatr
   get("/admin/checkUser") {
     contentType = "text/html"
     val userId = params.get("userId")
-    val theUser = identityService.get(userRepository, userId.get,"")
-    templateEngine.layout("/WEB-INF/views/home.jade",Map("userId" -> theUser.get.name))
+    val userPassword = params.get("password")
+    val isRegistered = identityService.isRegisteredUser(userRepository, userId.get, userPassword.get)
+    isRegistered match {
+      case false => templateEngine.layout("/WEB-INF/views/login.jade")
+      case _ => templateEngine.layout("/WEB-INF/views/home.jade",Map("userId" -> userId.get))
+    }
   }
 
 

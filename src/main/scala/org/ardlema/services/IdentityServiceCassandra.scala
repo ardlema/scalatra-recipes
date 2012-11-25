@@ -8,9 +8,9 @@ class IdentityServiceCassandra
   with IdentityService
    {
 
-    def get(userRepository: UserRepository, userName: String, password: String) : Option[User] = {
-        val usuario = userRepository.get(userName, password)
-        Some(usuario.get)
+    def isRegisteredUser(userRepository: UserRepository, userName: String, password: String) : Boolean = {
+        userRepository.isRegisteredUser(userName, password)
+
    }
 }
 
