@@ -1,14 +1,13 @@
 package org.ardlema.services
 
-import org.ardlema.model.User
-import org.ardlema.repository.UserRepository
+import org.ardlema.config.Dependencies._
 
 class IdentityServiceCassandra
   extends AnyRef
   with IdentityService
    {
 
-    def isRegisteredUser(userRepository: UserRepository, userName: String, password: String) : Boolean = {
+    def isRegisteredUser(userName: String, password: String) : Boolean = {
         userRepository.isRegisteredUser(userName, password)
 
    }

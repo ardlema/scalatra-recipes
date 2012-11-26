@@ -5,6 +5,6 @@ import org.ardlema.repository.UserRepository
 
 trait IdentityService extends AnyRef {
 
-    def isRegisteredUser(userRepository: UserRepository, userName: String, password: String) : Boolean
+    def isRegisteredUser(userName: String, password: String) : Boolean
 
 }
