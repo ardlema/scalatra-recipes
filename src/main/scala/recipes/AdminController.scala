@@ -36,9 +36,6 @@ class AdminController extends ScalatraFilter
   }
 
 
-  notFound {
-    contentType = "text/html"
-    templateEngine.layout("/views/home.jade")
-  }
+
 
 }

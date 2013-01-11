@@ -2,7 +2,7 @@
 - attributes("headline") = "Welcome to Recipes 2.0"
 -@ val userId: String
 
-form.login-form(action="/admin/checkUser" method="get" id="login-form")
-  .form-submit
-    = "Hola" + " " + userId + " !!!!!!!"
+form.home-form
+  = "Hola" + " " + userId + " !!!!!!!"
+  button(type="submit" onclick="alert('JELLO!!!')") = "Login"
 

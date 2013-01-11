@@ -38,9 +38,6 @@ class RecipeController extends ScalatraFilter with ScalateSupport {
   }
 
 
-  notFound {
-    contentType = "text/html"
-    templateEngine.layout("/WEB-INF/views/login.jade")
-  }
+
 
 }
