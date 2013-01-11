@@ -5,7 +5,6 @@ import scalate.ScalateSupport
 import grizzled.slf4j.Logger
 import org.ardlema.repository.UserRepository
 import net.liftweb.json.{NoTypeHints, Serialization}
-import com.escalatesoft.subcut.inject.{Injectable, BindingModule}
 import org.ardlema.services.IdentityService
 import org.ardlema.config.Dependencies._
 
