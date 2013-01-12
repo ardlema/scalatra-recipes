@@ -31,7 +31,7 @@ function getContent(ajaxUrl) {
             ifModified: false,
             processData:true,
             success: function(datos){
-                alert('modify ajax');
+
                 $("#ajaxResponse").val(datos);
 
             },

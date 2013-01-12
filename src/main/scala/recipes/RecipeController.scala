@@ -10,12 +10,12 @@ import net.liftweb.json.{NoTypeHints, Serialization}
 class RecipeController extends ScalatraFilter with ScalateSupport {
 
   // very simple logger
-  val logger = Logger(classOf[RecipeController]);
+  val logger = Logger(classOf[RecipeController])
 
-  val recipesRepository = new RecipeRepository;
+  val recipesRepository = new RecipeRepository
 
   // implicit value for json serialization format
-  implicit val formats = Serialization.formats(NoTypeHints);
+  implicit val formats = Serialization.formats(NoTypeHints)
 
   get("/recipes/:id") {
     // set the result content type
@@ -23,8 +23,8 @@ class RecipeController extends ScalatraFilter with ScalateSupport {
 
     // convert response to json and return as OK
     recipesRepository.get(params("id").toInt) match {
-      case Some(x) => Ok(write(x));
-      case None => NotFound("Item with id " + params("id") + " not found...");
+      case Some(x) => Ok(write(x))
+      case None => NotFound("Item with id " + params("id") + " not found...")
     }
   }
 
@@ -33,14 +33,7 @@ class RecipeController extends ScalatraFilter with ScalateSupport {
     "response ajax!!!!"
   }
 
-  get("/") {
-    <html>
-      <body>
-        <h1>Hello, world!</h1>
-        Say <a href="login">hello to Scalate</a>.
-      </body>
-    </html>
-  }
+
 
 
 

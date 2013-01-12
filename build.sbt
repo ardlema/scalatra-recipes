@@ -14,6 +14,8 @@ libraryDependencies ++= Seq(
   "org.scalatra" % "scalatra" % "2.1.1",
   "org.scalatra" % "scalatra-scalate" % "2.1.1",
   "org.scalatra" % "scalatra-specs2" % "2.1.1" % "test",
+  "org.seleniumhq.selenium" % "selenium-java" % "2.23.1" % "test->default",
+  "org.scalatest" %% "scalatest" % "1.8" % "test",
   "net.liftweb" %% "lift-json" % "2.5-M1",
   "ch.qos.logback" % "logback-classic" % "1.0.6" % "runtime",
   "org.eclipse.jetty" % "jetty-webapp" % "8.1.7.v20120910" % "container",
