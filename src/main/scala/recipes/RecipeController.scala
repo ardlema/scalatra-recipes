@@ -28,6 +28,11 @@ class RecipeController extends ScalatraFilter with ScalateSupport {
     }
   }
 
+  get("/ajax") {
+    // set the result content type
+    "response ajax!!!!"
+  }
+
   get("/") {
     <html>
       <body>
